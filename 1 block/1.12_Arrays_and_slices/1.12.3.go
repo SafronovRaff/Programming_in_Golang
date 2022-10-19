@@ -40,7 +40,22 @@ func main() {
 		fmt.Scan(&a)
 		array[i] = a
 	}
-	slice := array[:]
+	// здесь ваш код
+	slice := array[:] // перемудрил, надо циклом... т.к. изменил первоначальные условия, добавил библтотеку.
 	sort.Ints(slice)
 	fmt.Println(slice[len(slice)-1])
 }
+
+/*
+	// Исправление
+	max := a
+	for i, _ := range array {
+		if max < array[i] {
+			max = array[i]
+		}
+
+	}
+	fmt.Print(max)
+}
+
+*/
