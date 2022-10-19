@@ -24,7 +24,7 @@ Sample Output:
 
 var a int
 
-func main() {
+/* func main() {
 	var a int
 	in := 0
 	fmt.Scan(&a)
@@ -41,5 +41,22 @@ func main() {
 	}
 	fmt.Println(in)
 }
+*/
 
 // 1 2 3 -1 -4
+
+func main() {
+	var num, el int
+	fmt.Scan(&num)
+
+	arr := make([]int, 0, num)
+
+	for i := 0; i < num; i++ {
+		fmt.Scan(&el)
+
+		if el > 0 { // добавляем в массив только положительные числа
+			arr = append(arr, el)
+		}
+	}
+	fmt.Println(len(arr))
+}
