@@ -22,8 +22,6 @@ Sample Output:
 3
 */
 
-var a int
-
 /* func main() {
 	var a int
 	in := 0
