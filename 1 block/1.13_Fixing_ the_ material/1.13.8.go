@@ -11,7 +11,6 @@ Sample Input:
 4
 Sample Output:
 1
-
 4
 21
 2
