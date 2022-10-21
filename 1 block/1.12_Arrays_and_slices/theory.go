@@ -35,6 +35,15 @@ func main() {
 		// 100
 	}
 	fmt.Println(a) // [100 100 100 100 100]
+	arr()
+}
+
+func arr() {
+	a := [4]int{1, 2, 3, 4}
+	for ind := range a {
+		fmt.Printf("%d ", a[ind]) // 1 2 3 4
+	}
+
 }
 
 /*
