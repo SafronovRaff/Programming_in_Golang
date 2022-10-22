@@ -4,7 +4,8 @@ import "fmt"
 
 /*
 Номер числа Фибоначчи
-Дано натуральное число A > 1. Определите, каким по счету числом Фибоначчи оно является, то есть выведите такое число n, что φn=A. Если А не является числом Фибоначчи, выведите число -1.
+Дано натуральное число A > 1. Определите, каким по счету числом Фибоначчи оно является, то есть выведите такое число n,
+что φn=A. Если А не является числом Фибоначчи, выведите число -1.
 
 Входные данные
 
@@ -14,7 +15,8 @@ import "fmt"
 
 Выведите ответ на задачу
 */
-
+/*
+// Не проходит тест, время выполнения превышает отведенное платформой время.
 func fibbonachi(n int) int {
 
 	if n == 0 {
@@ -25,6 +27,7 @@ func fibbonachi(n int) int {
 	}
 	return fibbonachi(n-1) + fibbonachi(n-2)
 }
+
 func main() {
 	var n, a int
 	fmt.Scanln(&a)
@@ -46,4 +49,37 @@ func main() {
 		}
 		fmt.Print(-1)
 	}
+}
+*/
+
+func fibbonachi(n int) int {
+	a := 0
+	b := 1
+	for i := 0; i < n; i++ {
+		a, b = b, b+a
+	}
+	return a
+}
+func main() {
+	var n int
+	fmt.Scanln(&n)
+
+	if n == 1 {
+		fmt.Println(2)
+	} else if n == 2 {
+		fmt.Println(3)
+	} else if n == 3 {
+		fmt.Println(4)
+	} else if n == 5 {
+		fmt.Println(5)
+	} else {
+		for i := 0; i < n; i++ {
+			if n == fibbonachi(i) {
+				fmt.Print(i)
+				return
+			}
+		}
+		fmt.Println(-1)
+	}
+
 }
