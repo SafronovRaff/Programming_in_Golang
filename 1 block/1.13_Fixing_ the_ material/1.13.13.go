@@ -51,7 +51,7 @@ func main() {
 	}
 }
 */
-
+/*
 func fibbonachi(n int) int {
 	a := 0
 	b := 1
@@ -82,4 +82,22 @@ func main() {
 		fmt.Println(-1)
 	}
 
+}
+*/
+
+func main() {
+	var a int
+	fmt.Scan(&a)
+	f1 := 0
+	f2 := 1
+	cnt := 0
+	for f1 < a {
+		f1, f2 = f2, f1+f2
+		cnt++
+	}
+	if f1 == a {
+		fmt.Println(cnt)
+	} else {
+		fmt.Println(-1)
+	}
 }
