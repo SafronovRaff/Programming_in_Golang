@@ -19,10 +19,10 @@ func main() {
 }
 
 func sumInt(num ...int) (int, int) {
-	a, b := 0, 0
+	qua, sum := 0, 0
 	for i, n := range num {
-		a = i + 1
-		b += n
+		qua = i + 1
+		sum += n
 	}
-	return a, b
+	return qua, sum
 }
