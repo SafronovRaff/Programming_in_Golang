@@ -19,8 +19,8 @@ Sample Output:
 */
 func main() {
 
-	fmt.Println(minimumFromFour())
-	//fmt.Println(minimumFromFourV2())
+	//fmt.Println(minimumFromFour())
+	fmt.Println(minimumFromFourV2())
 }
 
 func minimumFromFour() int {
