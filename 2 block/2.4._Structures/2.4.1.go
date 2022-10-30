@@ -2,25 +2,61 @@ package main
 
 import "fmt"
 
-type Circle struct {
-	x, y, r float64
+/*
+В рамках этого урока мы постарались представить себе уже привычные нам переменные и функции,
+как объекты из реальной жизни. Чтобы закрепить результат мы предлагаем вам небольшую творческую задачу.
+
+Вам необходимо реализовать структуру со свойствами-полями On, Ammo и Power, с типами bool, int, int соответственно.
+У этой структуры должны быть методы: Shoot и RideBike, которые не принимают аргументов, но возвращают значение bool.
+
+Если значение On == false, то оба метода вернут false.
+
+Делать Shoot можно только при наличии Ammo (тогда Ammo уменьшается на единицу, а метод возвращает true),
+если его нет, то метод вернет false. Метод RideBike работает также, но только зависит от свойства Power.
+
+Чтобы проверить, что вы все сделали правильно, вы должны создать указатель на экземпляр этой структуры с именем testStruct в функции main,
+в дальнейшем программа проверит результат.
+
+Закрывающая фигурная скобка в конце main() вам не видна, но она есть.
+
+Пакет main объявлять не нужно!
+
+Удачи!
+
+Sample Input:
+
+Sample Output:
+*/
+type Test struct {
+	On          bool
+	Ammo, Power int
+}
+
+func (t *Test) Shoot() bool {
+	if t.On == false || t.Ammo == 0 {
+		return false
+	}
+	t.Ammo = t.Ammo - 1
+	return true
+}
+
+func (t *Test) RideBike() bool {
+	if t.On == false || t.Power == 0 {
+		return false
+	}
+	t.Power = t.Power - 1
+	return true
 }
 
 func main() {
-	a := Circle{1, 2, 3}
-	fmt.Println("Call linked method", a.testLinked())
-	fmt.Println("after", a)
-	b := Circle{1, 2, 3}
-	fmt.Println("Call method", b.test())
-	fmt.Println("after", b)
-}
 
-func (c *Circle) testLinked() *Circle {
-	c.r = 123
-	return c
-}
+	testStruct := &Test{true, 0, 2}
+	fmt.Println(testStruct.Shoot(), testStruct.RideBike())
 
-func (c Circle) test() Circle {
-	c.r = 123
-	return c
+	/*
+	 * Экземпляр созданной вами структуры необходимо передать в качестве
+	 * аргумента функции testStruct, которая выполнит проверку соблюдения
+	 * всех условий задания/
+	 */
+
 }
