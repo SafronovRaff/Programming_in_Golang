@@ -1,27 +1,26 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import "fmt"
 
-type Vector struct {
-	x float64
-	y float64
-	z float64
-}
-
-func createVector(x float64, y float64, z float64) Vector {
-	return Vector{x, y, z}
-}
-
-func length(v Vector) int {
-	return int(math.Sqrt(v.x*v.x + v.y*v.y + v.z*v.z))
+type Circle struct {
+	x, y, r float64
 }
 
 func main() {
-	a := createVector(6, 3, 2)
-	b := createVector(1, 2, 4)
-	fmt.Print(length(a), " ")
-	fmt.Print(length(b))
+	a := Circle{1, 2, 3}
+	fmt.Println("Call linked method", a.testLinked())
+	fmt.Println("after", a)
+	b := Circle{1, 2, 3}
+	fmt.Println("Call method", b.test())
+	fmt.Println("after", b)
+}
+
+func (c *Circle) testLinked() *Circle {
+	c.r = 123
+	return c
+}
+
+func (c Circle) test() Circle {
+	c.r = 123
+	return c
 }
