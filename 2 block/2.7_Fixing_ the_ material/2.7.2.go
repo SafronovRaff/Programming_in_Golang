@@ -24,9 +24,9 @@ import (
 */
 
 func main() {
-
+	var err error
 	var a string
-	var _, err = fmt.Scanln(&a)
+	_, err = fmt.Scanln(&a)
 	if err != nil {
 		fmt.Println("ошибка")
 		return
