@@ -33,6 +33,7 @@ func main() {
 		return
 	}
 	fmt.Println(c)
+
 }
 
 func divide(a int, b int) (int, error) {
