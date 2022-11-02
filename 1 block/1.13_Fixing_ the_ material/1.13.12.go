@@ -20,8 +20,10 @@ Sample Output:
 func main() {
 	var num int
 
-	fmt.Scan(&num)
-
+	_, err := fmt.Scan(&num)
+	if err != nil {
+		fmt.Println("ошибка")
+	}
 	for i := 1; i <= num; i *= 2 {
 		fmt.Print(i, " ")
 	}
