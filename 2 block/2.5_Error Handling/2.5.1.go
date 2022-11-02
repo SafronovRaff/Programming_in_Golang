@@ -36,7 +36,9 @@ func main() {
 }
 
 func divide(a int, b int) (int, error) {
-
+	if b == 0 {
+		panic("division by zero!")
+	}
 	return a / b, nil
 
 }
