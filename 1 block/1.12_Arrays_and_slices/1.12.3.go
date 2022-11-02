@@ -37,25 +37,28 @@ func main() {
 	array := [5]int{}
 	var a int
 	for i := 0; i < 5; i++ {
-		fmt.Scan(&a)
+		_, err := fmt.Scan(&a)
+		if err != nil {
+			fmt.Println("ошибка")
+		}
 		array[i] = a
 	}
 	// здесь ваш код
 	slice := array[:] // перемудрил, надо циклом... т.к. изменил первоначальные условия, добавил библиотеку.
 	sort.Ints(slice)
 	fmt.Println(slice[len(slice)-1])
+
+	vers2(array)
 }
 
-/*
-	// Исправление
-	max := a
-	for i, _ := range array {
-		if max < array[i] {
-			max = array[i]
+func vers2(array [5]int) {
+
+	max := array[0]
+	for _, el := range array {
+		if el > max {
+			max = el
 		}
 
 	}
-	fmt.Print(max)
+	fmt.Printf("максимальное число %v", max)
 }
-
-*/
