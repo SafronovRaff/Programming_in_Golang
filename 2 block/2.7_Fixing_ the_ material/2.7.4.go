@@ -16,7 +16,7 @@ Sample Output:
 */
 func main() {
 	var text string
-	_, err := fmt.Scanln(&text)
+	var _, err = fmt.Scanln(&text)
 	if err != nil {
 		fmt.Println("ошибка")
 	}
