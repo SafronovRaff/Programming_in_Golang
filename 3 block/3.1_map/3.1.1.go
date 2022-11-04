@@ -34,23 +34,20 @@ func main() {
 	for i := 0; i < 10; i++ {
 		fmt.Scan(&num)
 
-		/*	if _, inMap := m[num]; inMap {
-				if !inMap {
-					m[num] = work(num)
-
-				}
-			}
-			num = m[num]
-			fmt.Printf("%d ", num)
-		}*/
-
-		_, inMap := m[num]
-		if !inMap {
+		if _, inMap := m[num]; !inMap {
 			m[num] = work(num)
-			fmt.Print(m[num], " ")
-		} else {
-			fmt.Print(m[num], " ")
 		}
 
+		num = m[num]
+		fmt.Printf("%d ", num)
 	}
+
+	/*_, inMap := m[num]
+	if !inMap {
+		m[num] = work(num)
+		fmt.Print(m[num], " ")
+	} else {
+		fmt.Print(m[num], " ")
+	}*/
+
 }
