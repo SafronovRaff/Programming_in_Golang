@@ -35,12 +35,6 @@ func main() {
 	fmt.Printf("%.4f\n", oper(num1, num2))
 }
 
-func readTask() (interface{}, interface{}, interface{}) {
-
-	return 6.5, 4.7, "8"
-
-}
-
 func checkValue(value interface{}) (float64, error) {
 	if val, ok := value.(float64); ok {
 		return val, nil

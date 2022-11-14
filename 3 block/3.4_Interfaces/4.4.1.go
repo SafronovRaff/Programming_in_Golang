@@ -27,10 +27,10 @@ import (
 Удачи!
 */
 func main() {
-	fmt.Print(doMathOperation(readTask()))
+	fmt.Print(Operation(readTask()))
 }
 
-func doMathOperation(value1, value2, operation interface{}) interface{} {
+func Operation(value1, value2, operation interface{}) interface{} {
 	if _, ok := value1.(float64); !ok {
 		return fmt.Sprintf("value=%v: %T", value1, value1)
 	}
@@ -49,4 +49,10 @@ func doMathOperation(value1, value2, operation interface{}) interface{} {
 	default:
 		return fmt.Sprint("неизвестная операция")
 	}
+}
+
+func readTask() (interface{}, interface{}, interface{}) {
+
+	return 6.5, 4.7, "+"
+
 }
