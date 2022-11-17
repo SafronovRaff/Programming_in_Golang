@@ -16,7 +16,7 @@ func walkFunc(path string, info os.FileInfo, err error) error {
 		return nil
 	}
 
-	csvFile, _ := os.Open(path) // открываем файл, но не закрываем
+	csvFile, _ := os.Open(path)
 
 	r := csv.NewReader(csvFile)
 
@@ -32,7 +32,7 @@ func walkFunc(path string, info os.FileInfo, err error) error {
 	return nil
 }
 func main() {
-	const root = "/home/roman/GolandProjects/Programming_in_Golang/3 block/3.5_Working with files/task/"
+	const root = "/home/roman/GolandProjects/Programming_in_Golang/3 block/3.5_Working with files/task"
 	if err := filepath.Walk(root, walkFunc); err != nil {
 		fmt.Printf("Какая-то ошибка: %v\n", err)
 	}
