@@ -16,9 +16,9 @@ func walkFunc(path string, info os.FileInfo, err error) error {
 		return nil
 	}
 
-	csvFile, _ := os.Open(path) // открываем файл, но не закрываем?
+	csvFile, _ := os.Open(path) // открываем файл, но не закрываем
 
-	r := csv.NewReader(csvFile) // какая-то магия
+	r := csv.NewReader(csvFile)
 
 	record, err := r.ReadAll() // record типа буфер на каждой итерации
 	if err != nil {
@@ -32,7 +32,7 @@ func walkFunc(path string, info os.FileInfo, err error) error {
 	return nil
 }
 func main() {
-	const root = "C:/Users/R/GolandProjects/Programming_in_Golang/task"
+	const root = "/home/roman/GolandProjects/Programming_in_Golang/3 block/3.5_Working with files/task/"
 	if err := filepath.Walk(root, walkFunc); err != nil {
 		fmt.Printf("Какая-то ошибка: %v\n", err)
 	}
