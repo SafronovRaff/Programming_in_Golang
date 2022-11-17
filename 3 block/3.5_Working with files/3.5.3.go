@@ -1,27 +1,38 @@
 package main
 
 import (
+	"encoding/csv"
 	"fmt"
 	"os"
 	"path/filepath"
 )
 
 func walkFunc(path string, info os.FileInfo, err error) error {
+	if err != nil { // норм ли путь
+		return err
+	}
+
+	if info.IsDir() { // пропускаем папки
+		return nil
+	}
+
+	csvFile, _ := os.Open(path) // открываем файл, но не закрываем?
+
+	r := csv.NewReader(csvFile) // какая-то магия
+
+	record, err := r.ReadAll() // record типа буфер на каждой итерации
 	if err != nil {
-		return err // Если по какой-то причине мы получили ошибку, проигнорируем эту итерацию
+		return err
 	}
 
-	if info.IsDir() {
-		return nil // Проигнорируем директории
+	if len(record) == 10 && len(record[len(record)-1]) == 10 {
+		fmt.Print(record[4][2])
 	}
 
-	fmt.Printf("Name: %s\tSize: %d byte\tPath: %s\n", info.Name(), info.Size(), path)
 	return nil
 }
-
 func main() {
-	const root = "C:/Users/R/GolandProjects/Programming_in_Golang" // Файлы моей программы находятся в другой директории
-
+	const root = "C:/Users/R/GolandProjects/Programming_in_Golang/task"
 	if err := filepath.Walk(root, walkFunc); err != nil {
 		fmt.Printf("Какая-то ошибка: %v\n", err)
 	}
