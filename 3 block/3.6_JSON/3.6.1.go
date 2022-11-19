@@ -1,5 +1,3 @@
-package main
-
 /*
 На стандартный ввод подаются данные о студентах университетской группы в формате JSON:
 {
@@ -42,4 +40,80 @@ if err != nil {
 // data - тип []byte
 Задачу можно выполнить и другими способами, в частности использовать bufio.
 Буквально в следующем шаге (через один, на самом деле) будет рассказано о еще одном способе чтения / записи,
-можете забежать немного вперед, а затем вернуться к задаче.*/
+можете забежать немного вперед, а затем вернуться к задаче.
+*/
+
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"os"
+)
+
+type Group struct {
+	ID       int
+	Number   string
+	Year     int
+	Students []Students
+}
+type Students struct {
+	LastName   string
+	FirstName  string
+	MiddleName string
+	Birthday   string
+	Address    string
+	Phone      string
+	Rating     []int
+}
+
+type Response struct {
+	Average float64
+}
+
+func main() {
+
+	var result Group
+
+	data, err := ioutil.ReadAll(os.Stdin)
+	if err != nil {
+		panic(err)
+	}
+
+	if err := json.Unmarshal(data, &result); err != nil {
+
+		fmt.Println("Unmarshal не может прочитать файл", err)
+		return
+	}
+
+	var countRating int
+	/*	var countStudent int
+
+		for _, v := range result.Students {
+			countStudent = countStudent + countStudent
+			for range v.Rating {
+				countRating = countRating + countRating
+			}
+
+		}
+
+		total := Response{
+			float64(countStudent) / float64(countRating),
+		}
+	*/
+	for _, v := range result.Students {
+		countRating = countRating + len(v.Rating)
+	}
+
+	total := Response{
+		float64(countRating) / float64(len(result.Students)),
+	}
+
+	vvv, err := json.MarshalIndent(total, "", "    ")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(string(vvv))
+}
