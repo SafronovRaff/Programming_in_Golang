@@ -35,7 +35,7 @@ func main() {
 	}
 
 	fmt.Println("переименовываем файлы")
-	err := os.Rename("2tex0t.txt", "4text.txt")
+	err := os.Rename("2text.txt", "4text.txt")
 	if err != nil {
 		fmt.Println("ОШИБКА!", err)
 	}
