@@ -17,6 +17,11 @@ func main() {
 	{
 		fmt.Println("не могу считать данные")
 	}
-	buf = strings.TrimSpace(buf)
+
+	//	buf = strings.TrimSpace(buf) //strings.TrimRight(buf, "\n")
+
+	splitedBuf := strings.Split(buf, ",") //разбиваем строку на 2 части
+
+	splitedBuf[0], splitedBuf[1] = strings.TrimSpace(splitedBuf[0]), strings.TrimSpace(splitedBuf[1]) // убираем перенос коретки для дальнейшего парсинга
 
 }
