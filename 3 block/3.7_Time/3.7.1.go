@@ -33,10 +33,12 @@ func main() {
 
 	/*
 		buf, err := bufio.NewReader(os.Stdin).ReadString('\n')
-		if err != nil {
+		if err != nil && err != io.EOF {
+			panic(err)
+		}
+		{
 			fmt.Println("не могу считать данные")
 		}
-		buf = strings.TrimSpace(buf)
 	*/
 
 	firstTime, err := time.Parse(RFC3339, buf)

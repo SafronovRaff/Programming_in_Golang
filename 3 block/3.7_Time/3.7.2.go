@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"os"
 	"strings"
 	"time"
@@ -27,7 +28,10 @@ func main() {
 	deadline := 13 // remove with version 2
 
 	buf, err := bufio.NewReader(os.Stdin).ReadString('\n')
-	if err != nil {
+	if err != nil && err != io.EOF {
+		panic(err)
+	}
+	{
 		fmt.Println("не могу считать данные")
 	}
 	buf = strings.TrimSpace(buf)
