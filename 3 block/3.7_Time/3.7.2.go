@@ -28,7 +28,7 @@ func main() {
 
 	buf, err := bufio.NewReader(os.Stdin).ReadString('\n')
 	if err != nil {
-		fmt.Println("не могу считать данные")
+		fmt.Println("I can't read the data")
 	}
 	buf = strings.TrimSpace(buf)
 
