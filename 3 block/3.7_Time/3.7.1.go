@@ -33,10 +33,7 @@ func main() {
 
 	/*
 		buf, err := bufio.NewReader(os.Stdin).ReadString('\n')
-		if err != nil && err != io.EOF {
-			panic(err)
-		}
-		{
+		if err != nil {
 			fmt.Println("не могу считать данные")
 		}
 	*/
