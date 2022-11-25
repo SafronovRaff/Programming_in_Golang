@@ -5,7 +5,7 @@
 
 <p dir="auto">Course: <a href="https://stepik.org/course/54403/info" rel="nofollow">https://stepik.org/course/100208/syllabus</a></p>
 
-
+![](sertifikat.jpg)
 
 <img src="https://github.com/SafronovRaff/Programming_in_Golang/sertifikat.jpg" alt="" style="max-width: 100%;">
 
