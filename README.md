@@ -7,6 +7,6 @@
 
 
 
-<img src="[https://github.com/SafronovRaff/Programming_in_Golang/blob/main/sertifikat.jpg](https://github.com/SafronovRaff/Programming_in_Golang/blob/a2caa3a1cb09507eae1f49768748ff82954f7cec/sertifikat.jpg)" alt="" style="max-width: 100%;">
+<img src="https://github.com/SafronovRaff/Programming_in_Golang/blob/main/sertifikat.jpg" alt="" style="max-width: 100%;">
 
 <p dir="auto">My cert: <a href="https://stepik.org/cert/1779501" rel="nofollow">https://stepik.org/cert/1779501</a></p>
